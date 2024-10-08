@@ -1,0 +1,9 @@
+{
+  "detectors_to_exclude": "incorrect-shift,reentrancy-no-eth,divide-before-multiply,timestamp,solc-version,too-many-digits,naming-convention",
+  "exclude_informational": true,
+  "exclude_low": true,
+  "exclude_medium": false,
+  "exclude_high": false,
+  "disable_color": false,
+  "filter_paths": "(node_modules/|contracts/test/)"
+}
