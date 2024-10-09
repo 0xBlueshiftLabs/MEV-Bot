@@ -1,7 +1,7 @@
 # Undercollateralized Lending/Borrowing MEV Bot
 
 
-Arbitraging Timeswap-V1-based undercollateralized pools with flash loans.
+Arbitraging undercollateralized Timeswap-V1-based pools with Uniswap flash loans.
 
 
 Flow:
@@ -40,6 +40,14 @@ When users borrow from or lend to a pool a Borrow or Lend event is emitted. List
 
 
 If Z/X < 1 then the pool is undercollateralized and a profitable arbitrage opportunity may be possible.
+
+## Targeting Specific CDPs
+Potential for a pure math solution, implemented on-chain.
+For now, off-chain algorithm used. Looping `BorrowMath.givenPercent()` whilst varying the `assetOut` argument to get the changes in `x, y, z` values of the pool and therefore the new CDP of the pool. 
+This will determine the optimal amount of asset token to borrow from the credit pool, from which we can calculate the amount of collateral token to flash loan from Uniswap.
+
+A binary search algorithm seemed appropriate for this as average performance is O(log n).
+
 
 
 ## Minimising Fees
